@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<script type="text/javascript">
+	/* Article FructCode.com */
+$( document ).ready(function() {
+    $("#btn").click(
+		function(){
+            //sendAjaxFormDoc('ajax_form');
+            sendAjaxForm('ajax_form', 'http://vip.demenibu.com/tracker_api');
+			return false; 
+		}
+	);
+});
+$( document ).ready(function() {
+    $("#btn1").click(
+        function(){
+            //sendAjaxFormDoc1('ajax_form1');
+            sendAjaxForm('ajax_form1', 'http://vip.demenibu.com/tracker_api');
+            return false; 
+        }
+    );
+});
+ 
+function sendAjaxForm(ajax_form, url) {
+    $.ajax({
+        url:     "http://vip.demenibu.com/tracker_api", //url страницы (action_ajax_form.php)
+        type:     "GET", //метод отправки
+        dataType: "jsonp", //формат данных
+        data: $("#ajax_form").serialize(),  // Сеарилизуем объект
+        success: function(response) { //Данные отправлены успешно
+        	  console.log(response);
+              window.location.href = "thank-you/index.html"
+
+    	},
+    	error: function(response) { // Данные не отправлены
+           alert("error");
+    	}
+ 	});
+}
+function sendAjaxForm(ajax_form1, url) {
+    $.ajax({
+        url:     "http://vip.demenibu.com/tracker_api", //url страницы (action_ajax_form.php)
+        type:     "GET", //метод отправки
+        dataType: "jsonp", //формат данных
+        data: $("#ajax_form1").serialize(),  // Сеарилизуем объект
+        success: function(response) { //Данные отправлены успешно
+              console.log(response);
+              window.location.href = "thank-you/index.html"
+
+        },
+        error: function(response) { // Данные не отправлены
+           alert("error");
+        }
+    });
+} 
+</script>
+
+	 <form class="form" method="post" id="ajax_form1" >
+         
+             
+                  <div class="field">
+                    <div class="top">
+                      <div class="field_name">name</div>
+             
+                    </div>
+                 <!--<input type="text" data-error-name="Name" name="entry.1417491099"   placeholder="name">
+                  -->
+                  <input type="text" data-error-name="Name" name="name"   placeholder="name">
+                  </div>
+                  <div class="field">
+                    <div class="top">
+                      <div class="field_name">phone</div>
+             
+                    </div><!--
+                    <input type="text" data-error-name="Name" name="entry.212516136"   placeholder="phone">-->
+                    <input type="text" data-error-name="Name" name="phone"   placeholder="phone">
+                  </div>
+
+       <input type="hidden" name="aff_id" value="654">
+ <input type="hidden" name="offer_id" value="974">
+
+ <input type="hidden" name="product" value="nivele_cream">
+ <input type="hidden" name="aff_sub2" class="aff_sub2" value="2">
+ <input type="hidden" name="aff_sub3" class="aff_sub3" value="3" >
+ <input type="hidden" name="aff_sub4" class="aff_sub4" value="4" >
+ <input type="hidden" name="aff_sub5" class="aff_sub5" value="5" >
+ <input type="hidden" name="user_ip" value='<?php echo $_SERVER["REMOTE_ADDR"]; ?>'>
+
+<input type="hidden" name="location" value="http://best-kept-acting-secret.com/thank-you/">
+                  <div class="arrow_price">
+                    <div class="old_price">
+                      <div class="desc">Al dettaglio:</div>
+                      <div class="value"><span> €75.00</span></div>
+                    </div>
+                    <div class="new_price">
+                      <div class="value">
+                        <div class="new_price_count">€39.00                          <div class="label_new"><span>nuovo!</span></div>
+                        </div>
+                        <div class="box">
+                          <p><span class="plus">+</span><span class="free">CONSEGNA </span></p>
+                          <p><span class="regular">RAPIDA!</span></p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="button_get order_button" style="    line-height: 47px;" id="btn1">Ordina Adesso<span>CON LO SCONTO!</span></div>
+                  <div class="nope">* Compilare il modulo non ti obbliga a fare un acquisto</div>
+                <input type="hidden" name="spam_checker"></form>
+
+
+</body>
+</html>
